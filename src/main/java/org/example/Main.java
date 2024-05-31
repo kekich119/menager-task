@@ -44,18 +44,18 @@ public class Main {
 
 
 
-        if (empty == null) {
-            System.out.println("Файл пуст, поставьте новую задачу - /task");
-            System.out.println();
-            inputCommand();
-            return;
-        } else {
-            try {
+            if (empty == null) {
+                System.out.println("Файл пуст, поставьте новую задачу - /task");
+                System.out.println();
+                inputCommand();
+                return;
+            } else {
+                try {
 
-                JSONParser jsonParser = new JSONParser();
-                FileReader reader = new FileReader("test.json");
-                Object object = jsonParser.parse(reader);
-                JSONArray tasklist = (JSONArray) object;
+                    JSONParser jsonParser = new JSONParser();
+                    FileReader reader = new FileReader("test.json");
+                    Object object = jsonParser.parse(reader);
+                    JSONArray tasklist = (JSONArray) object;
 
                 for (Object taskObj : tasklist) {
                     JSONObject task = (JSONObject) taskObj;
@@ -72,7 +72,7 @@ public class Main {
             } catch(ParseException e){
                 throw new RuntimeException("Ошибка парсинга JSON", e);
             }
-            inputCommand();
+                inputCommand();
         }
 
     }
@@ -170,6 +170,7 @@ public class Main {
 
             default:
                 System.out.println("Вы ввели неправильную команду ");
+            
                 helpComm();
                 break;
 
